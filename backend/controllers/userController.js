@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import User from '../models/User.js';
 
 export const createUser = async (req, res) => {
@@ -14,20 +15,58 @@ export const createUser = async (req, res) => {
         res.status(400).json({ message: 'Erro ao criar usuário', error });
     }
 };
+
 export const getUsers = async (req, res) => {
     try {
-        const users = await User.find();
+        const { name, email } = req.query;
+
+        let filter = {};
+        if (name) filter.name = { $regex: name, $options: 'i' }; // busca case-insensitive
+        if (email) filter.email = email;
+
+        const users = await User.find(filter);
         res.status(200).json(users);
     } catch (error) {
         res.status(400).json({ message: 'Erro ao buscar usuários', error });
     }
 };
-export const getUsersByName = async (req, res) => {
+export const getUsersById = async (req, res) => {
+    try {
+        const { _id } = req.params;
+        if (!mongoose.Types.ObjectId.isValid(_id)) {
+          return res.status(400).json({ message: 'ID de usuário inválido' });
+        }
+        const user = await User.findById(_id);
+        if (!user) {
+          return res.status(404).json({ message: 'Usuário não encontrado' });
+        }
+        res.status(200).json(user);
+      } catch (error) {
+        res.status(400).json({ message: 'Erro ao buscar usuários por nome', error });
+    }
+};
+
+export const setNameuser = async (req, res, ) => {
     try {
         const { name } = req.params;
         const users = await User.find({ name: { $regex: name, $options: 'i' } }); // busca case-insensitive
         res.status(200).json(users);
     } catch (error) {
         res.status(400).json({ message: 'Erro ao buscar usuários por nome', error });
+    }
+};
+export const setPassworduser = async (req, res, ) => {
+    try {
+        const { email, password } = req.body;
+
+        if (!email || !password) {
+            return res.status(400).json({ message: 'Email e senha são obrigatórios' });
+        }
+        const user = await User.findOne({ email });
+        user.password = password;
+        await user.save();
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(400).json({ message: 'Erro ao buscar usuários', error });
     }
 };
