@@ -73,7 +73,7 @@ export default function Register() {
           required
           icon="🔒"
         />
-        <Button type="submit" massage={message || 'Registre-se'} />
+        <Button type="submit" message={message || 'Registre-se'} />
       </form>
     </div>
   );

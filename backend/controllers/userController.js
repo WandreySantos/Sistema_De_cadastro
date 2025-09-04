@@ -104,7 +104,7 @@ export const setNameuser = async (req, res) => {
       .json({ message: 'Erro ao buscar usuários por nome', error });
   }
 };
-export const setPassworduser = async (req, res) => {
+export const setPassword = async (req, res) => {
   try {
     const { email, password } = req.body;
 

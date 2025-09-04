@@ -12,7 +12,7 @@ router.get('/users/:_id', userController.getUsersById);
 router.put('/users/name/:name', userController.setNameuser);
 // router.put('/users/email/:email', userController);
 
-router.patch('/users/password', userController.setPassworduser);
+router.patch('/setPassword', userController.setPassword);
 
 router.delete('/users/:_id', userController.deleteUser);
 
