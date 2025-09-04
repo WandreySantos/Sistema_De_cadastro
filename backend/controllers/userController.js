@@ -51,7 +51,7 @@ export const LogineUser = async (req, res) => {
       return res.status(404).json({ message: 'Usuário não encontrado' });
     }
     if (user.password !== password) {
-      return res.status(401).json({ message: 'Senha incorreta' });
+      return res.status(401).json({ message: '❌ Senha incorreta' });
     }
     res.status(200).json({
       message: 'Login realizado com sucesso',
