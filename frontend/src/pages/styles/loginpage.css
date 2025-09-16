@@ -1,0 +1,170 @@
+@import url('../../colors.css');
+
+/* ===========================
+   BANNER
+=========================== */
+.banner {
+  position: relative;
+  color: var(--text-color);
+  text-align: center;
+  height: 100vh;
+  width: 90vw;
+  display: flex;
+  padding-left: 25px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-image: url('/assets/plano_loginPage.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.banner h1 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: var(--text-color);
+  font-weight: 800;
+}
+
+.banner-content {
+  background: var(--banner-overlay);
+  padding: 20px;
+  border-radius: 12px;
+  width: 30vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===========================
+   AUTH BOXES (LOGIN/REGISTER)
+=========================== */
+.login-box,
+.Register-box {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  border-radius: 12px;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.5);
+  width: 30vw;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  background-color: var(--background-color);
+  padding: 20px;
+  z-index: 10;
+}
+
+/* ===========================
+   TÍTULOS
+=========================== */
+.login-box h1,
+.Register-box h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.banner h1 {
+  font-size: 2rem;
+}
+
+/* ===========================
+   FORMS
+=========================== */
+.login-box form,
+.Register-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Botão dos formulários */
+.auth-box button {
+  width: 50%;
+  align-self: center;
+}
+
+/* ===========================
+   LINKS
+=========================== */
+.login-box a,
+.Register-box a {
+  color: var(--text-color);
+  text-decoration: none;
+  border-radius: 1rem;
+  padding: 0.2rem 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.login-box a:hover,
+.Register-box a:hover,
+.login-box a:focus,
+.Register-box a:focus {
+  color: var(--text-color);
+  background-color: var(--link-hover-bg);
+  text-decoration: none;
+}
+
+/* ===========================
+   ANIMAÇÕES
+=========================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===========================
+   RESPONSIVIDADE
+=========================== */
+@media (max-width: 768px) {
+  .banner-content {
+    width: 40vw;
+    height: auto;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 675px) {
+  .banner {
+    width: 100vw;
+    height: auto;
+    padding: 20px;
+  }
+
+  .banner h1 {
+    font-size: 1.5rem;
+  }
+
+  .banner button {
+    width: 80%;
+    font-size: 0.9rem;
+  }
+
+  .auth-box {
+    width: 90vw;
+    margin: 20px auto;
+    position: relative;
+    top: auto;
+    right: auto;
+    transform: none;
+    min-height: auto;
+  }
+
+  .login-box form,
+  .Register-box form {
+    gap: 12px;
+  }
+}

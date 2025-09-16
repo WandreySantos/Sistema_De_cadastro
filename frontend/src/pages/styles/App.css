@@ -8,14 +8,11 @@
   text-align: center;
 }
 .container {
-  background-image: url('/assets/fundo.jpg');
+  position: relative;
+  background-image: url('');
   display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  justify-content: center;
-  border-radius: 30px;
   background-size: contain;
-  height: 80vh;
-  width: 65vw;
-  padding: 10px;
+  height: 95vh;
+  width: 90vw;
+  overflow-y: hidden; /* se o conteúdo for maior que a tela, ativa scroll */
 }

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './styles/login.css';
+import './styles/loginpage.css';
 import Input from '../components/inPut';
 import Button from '../components/button';
 import Modal from '../components/modal';
@@ -7,9 +7,9 @@ import Modal from '../components/modal';
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [nwpassword, setNewpassword] = useState(''); // senha temporária
+  const [nwpassword, setNewpassword] = useState('');
   const [message, setMessage] = useState('');
-  const [messageModal, setNmessegeModal] = useState(''); // senha temporária
+  const [messageModal, setNmessegeModal] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [resetEmail, setResetEmail] = useState('');
 
@@ -41,7 +41,7 @@ export default function Login() {
       const res = await fetch(`${API_URL}/setPassword`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: resetEmail, password: nwpassword }), // senha temporária
+        body: JSON.stringify({ email: resetEmail, password: nwpassword }),
       });
       console.log('Reset password for:', resetEmail);
       setNmessegeModal('🔗 Link de redefinição enviado!');
@@ -53,7 +53,7 @@ export default function Login() {
 
   return (
     <div className="login-box">
-      <h2>Login</h2>
+      <h1>Login</h1>
       <form onSubmit={handleLogin}>
         <Input
           type="email"

@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import './styles/register.css';
+import './styles/loginpage.css';
 import Input from '../components/inPut';
 import Button from '../components/button';
+
 export default function Register() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');

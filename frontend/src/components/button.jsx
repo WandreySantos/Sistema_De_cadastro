@@ -1,4 +1,10 @@
+// Button.jsx
 import './styles/button.css';
-export default function Button({ message, type }) {
-  return <button type={type}>{message}</button>;
+
+export default function Button({ message, type, onClick, className }) {
+  return (
+    <button type={type} onClick={onClick} className={className}>
+      {message}
+    </button>
+  );
 }
